@@ -1,4 +1,5 @@
 from Gamma import *
+from Beta import *
 
 
 def main():
@@ -12,10 +13,14 @@ def menu():
     Funcion principal de managment del menu
     """
     menu_content()
-    menu_choice= input("Ingrese opcion deseada -->")
-    if menu_validator(menu_choice):
+    user_selected = None
+    user_selected= input("Ingrese opcion deseada -->")
+    if menu_validator(user_selected):
         clear()
-        menu_choice_opciones[menu_choice]()
+        loop_var = menu_choice_caller(user_selected)
+        if loop_var == -1:
+            clear()
+            menu()
     else:
         clear()
         menu()
