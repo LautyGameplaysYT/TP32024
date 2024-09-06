@@ -2,7 +2,7 @@ from Gamma import *
 
 def menu_option_1():
     """
-    Funcion que se encarga de toda la ejecucion de la opcion 1
+    Funcion que se encarga de toda la ejecucion de la opcion 1.
     :return: el registro reiniciado con el archivo de texto
     """
     # obtenemos los datos del documento
