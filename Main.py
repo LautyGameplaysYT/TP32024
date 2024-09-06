@@ -1,12 +1,12 @@
 from Gamma import *
 from Beta import *
 
-
 def main():
     """
     Funcion principal del script
     """
     menu()
+
 
 def menu():
     """

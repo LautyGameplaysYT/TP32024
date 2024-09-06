@@ -1,3 +1,6 @@
+from Epsilon import *
+
+
 def menu_content():
     """
     Funcion simple que contiene los prints del menu
@@ -19,9 +22,9 @@ def menu_content():
 
 def menu_validator(menu_choice = None):
     """
-    Funcion simple para validar que la opcion que se ingrese sea un numero valido, dentro del rango 1-7
+    Funcion simple para validar que la opcion que se ingrese sea un numero valido, dentro del rango 1-9
     :param menu_choice: Default a **None** debe contener un string de la opcion que cargo el usuario
-    :return: **True** :  si la opcion ingresada en el menu es un numero y esta dentro del rango 1-7 / **False** : si la opcion ingresada es cualquier otra cosa
+    :return: **True** :  si la opcion ingresada en el menu es un numero y esta dentro del rango 1-9 / **False** : si la opcion ingresada es cualquier otra cosa
     """
     try:
         #Intentamos convertir la opcion del usuario a un Int para validar que sea un numero y no cualquier otra cosa
@@ -56,7 +59,8 @@ def menu_choice_1():
     print("="*80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        registry = menu_option_1()
+        return registry
     elif choice_confirm == "2":
         return -1
     else:
@@ -80,7 +84,7 @@ def menu_choice_2():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_2()
     elif choice_confirm == "2":
         return -1
     else:
@@ -104,7 +108,7 @@ def menu_choice_3():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_3()
     elif choice_confirm == "2":
         return -1
     else:
@@ -128,7 +132,7 @@ def menu_choice_4():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_4()
     elif choice_confirm == "2":
         return -1
     else:
@@ -155,7 +159,7 @@ def menu_choice_5():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_5()
     elif choice_confirm == "2":
         return -1
     else:
@@ -179,7 +183,7 @@ def menu_choice_6():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_6()
     elif choice_confirm == "2":
         return -1
     else:
@@ -203,7 +207,7 @@ def menu_choice_7():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_7()
     elif choice_confirm == "2":
         return -1
     else:
@@ -227,7 +231,7 @@ def menu_choice_8():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_8()
     elif choice_confirm == "2":
         return -1
     else:
@@ -250,7 +254,7 @@ def menu_choice_9():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        print("opcion ejecutada con exito")
+        menu_option_9()
     elif choice_confirm == "2":
         return -1
     else:
