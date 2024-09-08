@@ -62,12 +62,12 @@ def menu_choice_1():
         registry = menu_option_1()
         return registry
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
         menu_choice_1()
 
 
-def menu_choice_2():
+def menu_choice_2(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 2
 
@@ -84,14 +84,15 @@ def menu_choice_2():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_2()
+        registro = menu_option_2(registry)
+        return registro
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
-        menu_choice_2()
+        return None
 
 
-def menu_choice_3():
+def menu_choice_3(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 3
 
@@ -108,14 +109,15 @@ def menu_choice_3():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_3()
+        registro = menu_option_3(registry)
+        return registro
     elif choice_confirm == "2":
-        return -1
+        return 
     else:
-        menu_choice_3()
+        return
 
 
-def menu_choice_4():
+def menu_choice_4(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 4
 
@@ -132,11 +134,11 @@ def menu_choice_4():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_4()
+        menu_option_4(registry)
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
-        menu_choice_4()
+        return None
 
 
 def menu_choice_5():
@@ -161,7 +163,7 @@ def menu_choice_5():
     if choice_confirm == "1":
         menu_option_5()
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
         menu_choice_5()
 
@@ -185,7 +187,7 @@ def menu_choice_6():
     if choice_confirm == "1":
         menu_option_6()
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
         menu_choice_6()
 
@@ -209,7 +211,7 @@ def menu_choice_7():
     if choice_confirm == "1":
         menu_option_7()
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
         menu_choice_7()
 
@@ -233,7 +235,7 @@ def menu_choice_8():
     if choice_confirm == "1":
         menu_option_8()
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
         menu_choice_8()
 
@@ -256,12 +258,12 @@ def menu_choice_9():
     if choice_confirm == "1":
         menu_option_9()
     elif choice_confirm == "2":
-        return -1
+        return None
     else:
         menu_choice_9()
 
 
-def menu_choice_caller(menu_choice):
+def menu_choice_caller(menu_choice, registry = None):
     """
     Funcion simple que se encarga de llamar a la opcion del menu que selecciono el usuario
     :param menu_choice: La opcion que eligio el usuario, previamente validada por la funcion menu_validator()
@@ -272,13 +274,13 @@ def menu_choice_caller(menu_choice):
         f1 = menu_choice_1()
         return f1
     elif menu_choice == 2:
-        f2 = menu_choice_2()
+        f2 = menu_choice_2(registry)
         return f2
     elif menu_choice == 3:
-        f3 = menu_choice_3()
+        f3 = menu_choice_3(registry)
         return f3
     elif menu_choice == 4:
-        f4 = menu_choice_4()
+        f4 = menu_choice_4(registry)
         return f4
     elif menu_choice == 5:
         f5 = menu_choice_5()

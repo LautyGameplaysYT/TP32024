@@ -12,18 +12,20 @@ def menu():
     """
     Funcion principal de managment del menu
     """
-    menu_content()
-    user_selected = None
-    user_selected= input("Ingrese opcion deseada -->")
-    if menu_validator(user_selected):
+    registry = None
+    while True:
         clear()
-        loop_var = menu_choice_caller(user_selected)
-        if loop_var == -1:
+        menu_content()
+        user_selected = None
+        user_selected= input("Ingrese opcion deseada -->")
+        if menu_validator(user_selected):
             clear()
-            menu()
-    else:
-        clear()
-        menu()
+            if user_selected == "1":
+                registry = menu_choice_caller(user_selected)
+            elif user_selected == "2":
+                registry = menu_choice_caller(user_selected,registry)
+            else:
+                menu_choice_caller(user_selected, registry)
 
 
 if __name__ == '__main__':

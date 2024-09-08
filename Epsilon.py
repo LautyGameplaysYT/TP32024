@@ -2,7 +2,7 @@ from Gamma import *
 
 def menu_option_1():
     """
-    Funcion que se encarga de toda la ejecucion de la opcion 1
+    Funcion que se encarga de toda la ejecucion de la opcion 1 del menu, es decir, la inicializacion de un registro vacio y la carga de sus campos correspondientes tomando como dato un archivo .txt
     :return: el registro reiniciado con el archivo de texto
     """
     # obtenemos los datos del documento
@@ -24,27 +24,117 @@ def menu_option_1():
     return registro
 
 
-def menu_option_2():
+def menu_option_2(registry):
     """
     Funcion que se encarga de toda la ejecucion de la opcion 2
-    :return:
+    :param registry: un array de registros previamente dado por la función 1 O un valor de tipo "NoneType"
+    :return: el array de registro con el nuevo valor adentro, asumiendo que este tenga un tipo de envío y formas de pago validas, sino retornará el array de registros original
     """
+    clear()
+    if registry == None:
+        registry = [ ]
+    print("Ingrese el codigo postal: ")
+    cp = input("--> ")
+    print("Ingrese su direccion: ")
+    dr = input("-->" )
+    print(f"Ingrese su tipo de envio: \n carta simple (0) \n carta simple_v2 (1) \n carta simple_v3 (2) \n carta certificada (3) \n carta certificada_v2 (4) \n carta expresa (5) \n carta expresa_v2 (6)")
+    te = input("--> ")
+    print("Ingrese su forma de pago. \n Efectivo: 1 \n Tarjeta crédito: 2")
+    fp = input("--> ") 
+    try:
+        te = int(te)
+    except:
+        return registry
+    finally:
+        if te >= 0 and te <= 6:   
+            te_verification = True
+        else:
+            te_verification = False
+            return registry
+    try:
+        fp = int(fp)
+    except:
+        return registry
+    finally:
+        if fp == 1 or fp == 2:
+            fp_verification = True
+        else:
+            fp_verification = False
+            return registry
+    if fp_verification and te_verification:
+        registry.append(Envio(cp,dr,te,fp))
+    else:
+        return registry
+    return registry
 
 
-def menu_option_3():
+
+
+    
+
+def menu_option_3(registry):
     """
     Funcion que se encarga de toda la ejecucion de la opcion 3
-    :return:
+    :param registry: el array de registros a recorrer
+    :return: el array de registros ordenado si recibio uno valido, caso contrario retorna "NoneType"
     """
+    #limpiamos la consola
+    clear()
+    # verificamos que el registro se haya cargado inicialmente
+    if registry == None:
+        # si el registro no se cargo, retornamos al menu principal
+        return None
+    else:
+        #si el registro se cargo, ordenamos el registro. para esto usaremos el metodo de bubble sort
+        sorted_registry = bubble_sorter(registry)
+    #le preguntamos al usuario si quiere mostrar todo, o solamente algunos
+    print("Cuantos elementos desea mostrar en el arreglo?")
+    print("Ingrese un numero entero para indicar cuantos elementos desea mostrar")
+    print("Ingrese cualquier otra cosa para mostrar todos los elementos del arreglo")
+    user_choice = input("-->")
+    #verificamos si metio un numero entero, usamos try
+    try:
+        #intentamos convertir el string a un entero
+        user_choice = int(user_choice)
+    except:
+        #si tira una exception, significa que no metio un numero entero
+        #seteamos manualmente a -1
+        user_choice = "-1"
+    finally:
+        #procedemos con mostrar el registro
+        #
+        if user_choice == "-1":
+            n = len(sorted_registry)
+        elif user_choice != "-1":
+            n = int(user_choice)
+        else:
+            n = len(sorted_registry)
+        #limpiamos la consola una vez mas, antes de mostrar todo el registro
+        clear()
+        for i in range(n):
+            print("envio n°: "+str(i)+"  |  "+" Codigo postal: "+str(sorted_registry[i].codigo_postal)+"  |  "+" Tipo de envio: "+str(sorted_registry[i].tipo_de_envio)+"  |  "+" Direccion de destino: "+str(sorted_registry[i].direccion)+"  |  "+" Forma de pago: "+str(sorted_registry[i].forma_de_pago))
+        print("se ha mostrado el registro, pulse ENTER para continuar y volver al menu")
+        var1 = input()
+        return sorted_registry
 
 
-def menu_option_4():
+
+
+def menu_option_4(registry):
     """
     Funcion que se encarga de toda la ejecucion de la opcion 4
     :return:
     """
+    clear()
+    print("Ingrese su direccion: ")
+    dr = input("-->" )
+    print(f"Ingrese su tipo de envio: \n carta simple (0) \n carta simple_v2 (1) \n carta simple_v3 (2) \n carta certificada (3) \n carta certificada_v2 (4) \n carta expresa (5) \n carta expresa_v2 (6)")
+    te = input("--> ")
+    
 
-
+    
+    
+    
 def menu_option_5():
     """
     Funcion que se encarga de toda la ejecucion de la opcion 5
@@ -189,4 +279,25 @@ def data_extractor_hc(envios_list):
     noneammount = registry.count(None)
     for i in range(noneammount):
         registry.remove(None)
+    return registry
+
+
+def bubble_sorter(registry = None):
+    """
+    Funcion que se encarga de ordenar el array de registros, usando el bubble sort como algoritmo
+    :param registry: el array de registros sin ordenar
+    :return: el array ordenado
+    """
+    if registry == None:
+        return None
+    try:
+        n = len(registry)
+    except:
+        return None
+    finally:
+        pass
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if int(registry[j].codigo_postal) > int(registry[j+1].codigo_postal):
+                registry[j], registry[j+1] = registry[j+1], registry[j]
     return registry
