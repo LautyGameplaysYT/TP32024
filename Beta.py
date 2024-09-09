@@ -1,3 +1,10 @@
+"""
+Este es el modulo Beta
+
+El modulo Beta contiene la primera tanda de prints para las funciones del menu.
+
+Ademas de la funcion caller que se encarga de actuar como un derivador a todas las opciones del menu
+"""
 from Epsilon import *
 
 
@@ -134,14 +141,15 @@ def menu_choice_4(registry):
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_4(registry)
+        registro = menu_option_4(registry)
+        return registro
     elif choice_confirm == "2":
         return None
     else:
         return None
 
 
-def menu_choice_5():
+def menu_choice_5(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 5
 
@@ -154,21 +162,22 @@ def menu_choice_5():
     print("= Este sera buscado utilizando su codigo postal como criterio de busqueda      =")
     print("= Este solo mostrara el primer resultado que coincida con el criterio          =")
     print("= Ademas cuando encuentre una opcion que coincida con el criterio solicitado   =")
-    print("= Se le dara la opcion de alterar su forma de pago                             =")
+    print("= Se invertira su forma de pago. si es 1 sera 2 | y si es 2 sera 1             =")
     print("= Luego se le mostrara el registro completo reflejando el cambio efectuado     =")
     print("= Esta seguro que desea continuar?                                             =")
     print("= Ingrese 1 para continuar y 2 para volver                                     =")
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_5()
+        registro = menu_option_5(registry)
+        return registro
     elif choice_confirm == "2":
         return None
     else:
-        menu_choice_5()
+        return None
 
 
-def menu_choice_6():
+def menu_choice_6(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 6
 
@@ -185,14 +194,15 @@ def menu_choice_6():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_6()
+        registro = menu_option_6(registry)
+        return registro
     elif choice_confirm == "2":
         return None
     else:
-        menu_choice_6()
+        return None
 
 
-def menu_choice_7():
+def menu_choice_7(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 7
 
@@ -209,14 +219,15 @@ def menu_choice_7():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_7()
+        registro = menu_option_7(registry)
+        return registro
     elif choice_confirm == "2":
         return None
     else:
-        menu_choice_7()
+        return None
 
 
-def menu_choice_8():
+def menu_choice_8(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 8
 
@@ -233,14 +244,15 @@ def menu_choice_8():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_8()
+        registro = menu_option_8(registry)
+        return registro
     elif choice_confirm == "2":
         return None
     else:
-        menu_choice_8()
+        return None
 
 
-def menu_choice_9():
+def menu_choice_9(registry):
     """
     Funcion que se encarga de manejar la ejecucion de los prints de la opcion 9
 
@@ -256,11 +268,12 @@ def menu_choice_9():
     print("=" * 80)
     choice_confirm = input("--> ")
     if choice_confirm == "1":
-        menu_option_9()
+        registro = menu_option_9(registry)
+        return registro
     elif choice_confirm == "2":
         return None
     else:
-        menu_choice_9()
+        return None
 
 
 def menu_choice_caller(menu_choice, registry = None):
@@ -283,17 +296,17 @@ def menu_choice_caller(menu_choice, registry = None):
         f4 = menu_choice_4(registry)
         return f4
     elif menu_choice == 5:
-        f5 = menu_choice_5()
+        f5 = menu_choice_5(registry)
         return f5
     elif menu_choice == 6:
-        f6 = menu_choice_6()
+        f6 = menu_choice_6(registry)
         return f6
     elif menu_choice == 7:
-        f7 = menu_choice_7()
+        f7 = menu_choice_7(registry)
         return f7
     elif menu_choice == 8:
-        f8 = menu_choice_8()
+        f8 = menu_choice_8(registry)
         return f8
     elif menu_choice == 9:
-        f9 = menu_choice_9()
+        f9 = menu_choice_9(registry)
         return f9
